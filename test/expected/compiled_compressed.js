@@ -1,0 +1,1 @@
+!function(c,d,b){'use strict';function a(e){var c=b[e];if(!c){var f=d[e];if(!f)throw new Error('module '+e+' not found');c=b[e]={};var g=c.exports={};f.call(g,a,c,g,window);}return c.exports;}b=a.cache={},a.resolve=function(a){return a;},a.node=function(){return{};},a(c);}('./test/fixtures/compile.js',{'./test/fixtures/compile.js':function(a,b,c,d){console.log('It works!');}});
