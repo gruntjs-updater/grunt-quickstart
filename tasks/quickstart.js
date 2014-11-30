@@ -73,7 +73,7 @@ module.exports = function( grunt ) {
 		quickstart( options ).then( function( compiled ) {
 			// Write sourceMap
 			if( options.sourceMap ) {
-				fs.writeFile( options.output + '.map', compiled.sourceMap, function( err ) {
+				fs.writeFile( options.output + '.map', JSON.stringify(compiled.sourceMap), function( err ) {
 					if( err ) {
 						grunt.fatal( err );
 					}
