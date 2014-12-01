@@ -73,25 +73,25 @@ module.exports = function( grunt ) {
 		quickstart( options ).then( function( compiled ) {
 			// Write sourceMap
 			if( options.sourceMap ) {
-				fs.writeFile( options.output + '.map', JSON.stringify(compiled.sourceMap), function( err ) {
-					if( err ) {
-						grunt.fatal( err );
-					}
-
-					grunt.log.ok( 'Compiled sourcemap to ' + path.resolve( options.root, options.output + '.map') );
-					done();
-				} );
-			}
-
-
-			fs.writeFile( options.output, compiled.source, function( err ) {
-				if( err ) {
+				
+				try {
+					fs.writeFileSync( options.output + '.map', JSON.stringify(compiled.sourceMap) );
+					grunt.log.ok( 'Compiled sourcemap to ' + path.resolve( options.root, options.output + '.map' ) );
+				} catch( err ) {
 					grunt.fatal( err );
 				}
 
+			}
+
+			try {
+				fs.writeFileSync( options.output, compiled.source );
 				grunt.log.ok( 'Compiled to ' + path.resolve( options.root, options.output ) );
-				done();
-			} );
+			} catch( err ) {
+				grunt.fatal( err );
+			}
+
+			done();
+
 		}, grunt.fatal );
 	} );
 };
