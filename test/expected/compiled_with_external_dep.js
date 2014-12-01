@@ -238,11 +238,11 @@
       return res;
     }
     var substr = 'ab'.substr(-1) === 'b' ? function (str, start, len) {
-        return str.substr(start, len);
-      } : function (str, start, len) {
-        if (start < 0)
-          start = str.length + start;
-        return str.substr(start, len);
-      };
+      return str.substr(start, len);
+    } : function (str, start, len) {
+      if (start < 0)
+        start = str.length + start;
+      return str.substr(start, len);
+    };
   }
 }));
