@@ -1,7 +1,7 @@
 {
   "name": "grunt-contrib-quickstart",
   "description": "Resolve, load, and compile CommonJS modules with Quickstart.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/mauvm/grunt-contrib-quickstart",
   "author": {
     "name": "mauvm",
