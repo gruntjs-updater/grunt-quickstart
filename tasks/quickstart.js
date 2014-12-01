@@ -71,20 +71,27 @@ module.exports = function( grunt ) {
 
 		// Run
 		quickstart( options ).then( function( compiled ) {
-			// Append sourceMap
+			// Write sourceMap
 			if( options.sourceMap ) {
-				var sourceMap = new Buffer( JSON.stringify( sourceMap ) ).toString( 'base64' );
-				compiled.source += '\n//# sourceMappingURL=data:application/json;base64,' + sourceMap;
-			}
-
-			fs.writeFile( options.output, compiled.source, function( err ) {
-				if( err ) {
+				
+				try {
+					fs.writeFileSync( options.output + '.map', JSON.stringify(compiled.sourceMap) );
+					grunt.log.ok( 'Compiled sourcemap to ' + path.resolve( options.root, options.output + '.map' ) );
+				} catch( err ) {
 					grunt.fatal( err );
 				}
 
+			}
+
+			try {
+				fs.writeFileSync( options.output, compiled.source );
 				grunt.log.ok( 'Compiled to ' + path.resolve( options.root, options.output ) );
-				done();
-			} );
+			} catch( err ) {
+				grunt.fatal( err );
+			}
+
+			done();
+
 		}, grunt.fatal );
 	} );
 };
