@@ -1,6 +1,6 @@
 /*
- * grunt-contrib-quickstart
- * https://github.com/mauvm/grunt-contrib-quickstart
+ * grunt-quickstart
+ * https://github.com/mauvm/grunt-quickstart
  *
  * Copyright (c) 2014 Maurits van Mastrigt
  * Licensed under the MIT license.

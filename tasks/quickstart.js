@@ -1,6 +1,6 @@
 /*
- * grunt-contrib-quickstart
- * https://github.com/mauvm/grunt-contrib-quickstart
+ * grunt-quickstart
+ * https://github.com/mauvm/grunt-quickstart
  *
  * More info available at: https://github.com/spotify/quickstart
  *
